@@ -1,12 +1,12 @@
-var TodoApp = angular.module('TodoApp', []);
+var TodoApp = angular.module('TodoApp');
 
-function MainController($scope, $http) {
+TodoApp.controller('MainController', function ($scope, $http) {
     $scope.formData = {};
 
     $http.get('/api/todos')
         .success(function (data) {
             $scope.todos = data;
-            console.log(data);
+            // console.log(data);
         })
         .error(function (data) {
             console.log('Error: ' + data);
@@ -17,7 +17,7 @@ function MainController($scope, $http) {
             .success(function (data) {
                 $scope.formData = {};
                 $scope.todos = data;
-                console.log(data);
+                //console.log(data);
             })
             .error(function (data) {
                 console.log('Error: ' + data);
@@ -36,4 +36,4 @@ function MainController($scope, $http) {
             });
     };
 
-}
+});
